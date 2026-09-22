@@ -13,6 +13,7 @@ import {
   Outputs,
 } from "@/components/diagrams";
 import { features, metadata } from "@/lib/site";
+import { ScRNAAgentLogo } from "@/components/scrna-agent-logo";
 export const generateMetadata = () =>
   metadata(
     "scRNA-agent — Single-cell RNA-seq analysis for biologists",
@@ -23,7 +24,12 @@ export default function Product() {
   return (
     <>
       <Hero
-        eyebrow="scRNA-agent / By Lab Agent Works"
+        eyebrow={
+          <>
+            <ScRNAAgentLogo />
+            <span>scRNA-agent / By Lab Agent Works</span>
+          </>
+        }
         title="Single-cell RNA-seq analysis, directed by you."
         description="scRNA-agent helps biologists analyze their own data with local R/Python tools and specialized AI-assisted guidance, from quality control and annotation to figures and reports."
       >

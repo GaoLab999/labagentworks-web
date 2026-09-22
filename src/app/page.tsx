@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ScRNAAgentLogo } from "@/components/scrna-agent-logo";
 import {
   Badge,
   Button,
@@ -63,7 +64,10 @@ export default function Home() {
         <div className="product-intro">
           <div>
             <Badge>From Lab Agent Works · Coming soon</Badge>
-            <p className="product-name">scRNA-agent</p>
+            <p className="product-name product-lockup">
+              <ScRNAAgentLogo compact />
+              <span>scRNA-agent</span>
+            </p>
             <h2>
               Single-cell RNA-seq
               <br />

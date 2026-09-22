@@ -59,7 +59,7 @@ export function Hero({
   description,
   children,
 }: {
-  eyebrow: string;
+  eyebrow: ReactNode;
   title: string;
   description: string;
   children?: ReactNode;

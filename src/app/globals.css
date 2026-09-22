@@ -348,10 +348,24 @@ button:disabled {
   font-weight: 600;
   letter-spacing: -0.5px;
 }
-.product-name span {
-  margin-left: 15px;
-  font-size: 18px;
-  color: #78947e;
+.product-lockup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.product-lockup > span {
+  min-width: 0;
+}
+.scrna-agent-logo {
+  display: block;
+  width: 88px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.scrna-agent-logo-compact {
+  width: 64px;
 }
 .product-description {
   padding-top: 12px;
@@ -849,17 +863,6 @@ button:disabled {
 .download-panel h2 {
   margin-top: 23px;
 }
-.windows-mark {
-  display: grid;
-  grid-template-columns: repeat(2, 15px);
-  gap: 3px;
-  margin-bottom: 25px;
-}
-.windows-mark i {
-  width: 15px;
-  height: 15px;
-  background: #477766;
-}
 .release-details {
   border: 1px solid #d2ddcd;
   border-radius: 6px;
@@ -1261,6 +1264,15 @@ h2 {
   }
 }
 @media (max-width: 540px) {
+  .scrna-agent-logo {
+    width: 72px;
+  }
+  .scrna-agent-logo-compact {
+    width: 56px;
+  }
+  .product-lockup {
+    gap: 12px;
+  }
   .container {
     width: calc(100% - 40px);
   }

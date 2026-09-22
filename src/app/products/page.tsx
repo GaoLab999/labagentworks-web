@@ -7,6 +7,7 @@ import {
   CTASection,
 } from "@/components/ui";
 import { metadata } from "@/lib/site";
+import { ScRNAAgentLogo } from "@/components/scrna-agent-logo";
 export const generateMetadata = () =>
   metadata(
     "Scientific analysis tools",
@@ -25,7 +26,10 @@ export default function Products() {
         <div className="split">
           <div>
             <Badge>First product · Download coming soon</Badge>
-            <h2 className="mt-title">scRNA-agent</h2>
+            <h2 className="mt-title product-lockup">
+              <ScRNAAgentLogo />
+              <span>scRNA-agent</span>
+            </h2>
             <p className="large-copy">
               Single-cell RNA-seq analysis for biologists.
             </p>

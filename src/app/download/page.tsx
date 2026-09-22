@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ScRNAAgentLogo } from "@/components/scrna-agent-logo";
 import { Hero, Section, Badge, Button, FeatureCard } from "@/components/ui";
 import { metadata, release } from "@/lib/site";
 export const generateMetadata = () =>
@@ -18,16 +19,13 @@ export default function Page() {
       <Section className="tinted">
         <div className="download-panel">
           <div>
-            <span className="windows-mark" aria-hidden="true">
-              <i />
-              <i />
-              <i />
-              <i />
-            </span>
             <Badge>
               {release.url ? "Release available" : "Download coming soon"}
             </Badge>
-            <h2>scRNA-agent for Windows</h2>
+            <h2 className="product-lockup">
+              <ScRNAAgentLogo />
+              <span>scRNA-agent for Windows</span>
+            </h2>
             <p>
               The local WSL-based scientific runtime is configured automatically
               during guided setup.
