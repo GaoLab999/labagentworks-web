@@ -107,7 +107,7 @@ export function CTASection() {
           </h2>
           <p>Meet scRNA-agent, the first tool from Lab Agent Works.</p>
         </div>
-        <Button href="/download">Explore download & setup</Button>
+        <Button href="/download">View scRNA-agent availability</Button>
       </div>
     </section>
   );

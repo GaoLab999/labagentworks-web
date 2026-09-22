@@ -47,14 +47,14 @@ The preview command uses Python 3 to serve `out/` at http://localhost:3000. Any 
 
 References: [Cloudflare static Next.js deployment](https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/), [Next.js static exports](https://nextjs.org/docs/app/guides/static-exports).
 
-No external credentials or deployment have been configured. Production metadata currently uses `https://labagentworks.com`. Update `src/lib/site.ts`, `src/app/layout.tsx`, and `src/app/robots.ts` if the canonical domain changes. Keep staging previews out of search indexing using Cloudflare's preview controls.
+Cloudflare credentials are not stored in this repository. Production metadata currently uses `https://labagentworks.com`. Update `src/lib/site.ts`, `src/app/layout.tsx`, and `src/app/robots.ts` if the canonical domain changes. Keep staging previews out of search indexing using Cloudflare's preview controls.
 
 ## Release and content handoff
 
 - Populate `release` in `src/lib/site.ts` only after a signed Windows installer is verified: HTTPS URL, version, release date, SHA-256, and release-notes URL. The download button and notes link activate when URLs are populated. Publish supported Windows versions, hardware requirements, and installer verification instructions alongside the release. Large installer binaries should be hosted separately, not in the static site repository.
-- Confirm the proposed 14-day trial and membership terms before opening sales. Replace disabled pricing buttons with actual Lemon Squeezy checkout URLs only after products and prices are approved. Current buttons are visibly marked unavailable.
+- Confirm the proposed 14-day trial and membership terms before opening sales. Replace the pricing availability notices with actual Lemon Squeezy checkout links only after products and prices are approved. Until then, the page explains when membership opens and links to release availability.
 - Replace guide previews with validated operational documentation when the application is released.
-- Confirm `support@labagentworks.com` is provisioned; the current contact address is labeled as a placeholder. No mail sending is implemented.
+- Confirm `support@labagentworks.com` is provisioned; the current contact page explains that support availability will be confirmed with the application release. No mail sending is implemented.
 - Review product capability wording and publish detailed service data disclosures before release. The privacy page is an architecture explanation, not a complete legal policy.
 - Replace provisional icons/social artwork as brand assets become available. The product name is text-based and can cleanly accept a real logo beside it.
 
@@ -64,4 +64,4 @@ No environment variables are currently required. Future local configuration belo
 
 ## Accessibility and behavior
 
-Keyboard-visible focus, a skip link, native FAQ disclosures, a button-operated mobile menu, semantic landmarks, reduced-motion support, and descriptive illustration labeling are included. Status placeholders are disabled buttons or explicit text, never dead `#` links. The footer year updates at build time; rebuild annually to refresh it.
+Keyboard-visible focus, a skip link, native FAQ disclosures, a button-operated mobile menu, semantic landmarks, reduced-motion support, and descriptive illustration labeling are included. Availability notices use explicit text and working next-step links. No unavailable action is presented as an active button. Small text is at least 14px, supporting copy is 15–16px, and body text is 16px. The homepage principles strip stays at 16px on mobile. The illustrative SVG atlas is level and keeps its original aspect ratio. The footer year updates at build time; rebuild annually to refresh it.

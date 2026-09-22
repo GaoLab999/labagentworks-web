@@ -7,7 +7,7 @@ export function CellAtlas() {
     { x: 420, y: 184, rx: 27, ry: 35, c: "#506e80" },
   ];
   return (
-    <div className="atlas">
+    <figure className="atlas">
       <div className="atlas-top">
         <span className="micro">A CLOSER LOOK. A CLEARER QUESTION.</span>
         <span className="atlas-cross" aria-hidden="true">
@@ -16,6 +16,9 @@ export function CellAtlas() {
       </div>
       <svg
         viewBox="0 0 540 420"
+        width="540"
+        height="420"
+        preserveAspectRatio="xMidYMid meet"
         role="img"
         aria-label="Abstract point clusters inspired by single-cell data; illustrative, not scientific results"
       >
@@ -63,14 +66,14 @@ export function CellAtlas() {
         />
         <path d="M257 213h18M266 204v18" stroke="#2b665d" />
       </svg>
-      <div className="atlas-bottom">
+      <figcaption className="atlas-bottom">
         <span>
           <i />
           Biological complexity. Human direction.
         </span>
-        <span className="micro">ILLUSTRATIVE ATLAS</span>
-      </div>
-    </div>
+        <span className="micro">Illustrative atlas · Not research data</span>
+      </figcaption>
+    </figure>
   );
 }
 export function ArchitectureDiagram() {
@@ -102,8 +105,8 @@ export function ArchitectureDiagram() {
           ))}
         </div>
         <p className="local-note">
-          <span aria-hidden="true">↳</span> Raw matrices and large scientific
-          data stay here.
+          <span aria-hidden="true">↳</span> Raw matrices stay on your computer.
+          Scientific computation runs locally.
         </p>
       </div>
       <div className="core-connector" aria-hidden="true">
@@ -133,8 +136,9 @@ export function ArchitectureDiagram() {
       <div className="model-note">
         <span className="micro">YOUR MODEL ACCESS</span>
         <p>
-          Your own AI provider supports reasoning and execution. Shared context
-          is subject to that provider’s policies.
+          Your own AI provider supports reasoning and execution. Prompts and
+          shared project context may leave your computer and are subject to that
+          provider’s policies.
         </p>
       </div>
     </div>

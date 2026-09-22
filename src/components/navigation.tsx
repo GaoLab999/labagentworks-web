@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 const links = [
   ["Products", "/products"],
   ["How it works", "/how-it-works"],
@@ -11,14 +11,24 @@ const links = [
 ];
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const path = usePathname();
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const path = usePathname().replace(/\/$/, "") || "/";
   return (
-    <header className="site-header">
+    <header
+      className="site-header"
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && open) {
+          setOpen(false);
+          menuButton.current?.focus();
+        }
+      }}
+    >
       <div className="container nav-wrap">
         <Link className="wordmark" href="/" onClick={() => setOpen(false)}>
           Lab Agent Works<span className="brand-period">.</span>
         </Link>
         <button
+          ref={menuButton}
           className="menu-toggle"
           aria-expanded={open}
           aria-controls="main-nav"
@@ -50,6 +60,7 @@ export function Navbar() {
           <Link
             className="button button-small"
             href="/download"
+            aria-current={path === "/download" ? "page" : undefined}
             onClick={() => setOpen(false)}
           >
             Download <span aria-hidden="true">↗</span>

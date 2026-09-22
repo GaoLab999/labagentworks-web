@@ -52,8 +52,8 @@ export default function Page() {
           <p>
             This page explains the product’s data-handling architecture. It is
             not a blanket guarantee about every external provider or a complete
-            legal privacy policy. Detailed service data disclosures will need to
-            accompany the public release.
+            legal privacy policy. Detailed service data disclosures will be
+            published with the application release.
           </p>
           <Button href="/contact" secondary>
             Ask about data handling

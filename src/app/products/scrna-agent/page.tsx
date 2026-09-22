@@ -23,12 +23,12 @@ export default function Product() {
   return (
     <>
       <Hero
-        eyebrow="scRNA-agent / Single-cell analysis"
-        title="Let your biological questions lead."
-        description="A scientist-facing single-cell RNA-seq application that helps biologists work directly with their data, using local scientific tools and specialized AI-assisted guidance."
+        eyebrow="scRNA-agent / By Lab Agent Works"
+        title="Single-cell RNA-seq analysis, directed by you."
+        description="scRNA-agent helps biologists analyze their own data with local R/Python tools and specialized AI-assisted guidance, from quality control and annotation to figures and reports."
       >
         <div className="button-row">
-          <Button href="/download">Download & availability</Button>
+          <Button href="/download">View Windows availability</Button>
           <Badge>Windows · Coming soon</Badge>
         </div>
       </Hero>
@@ -57,6 +57,7 @@ export default function Product() {
         </div>
       </Section>
       <Section
+        id="workflow"
         eyebrow="The analysis framework"
         title="Guidance from data intake to interpretation."
       >
@@ -99,6 +100,7 @@ export default function Product() {
         </div>
       </Section>
       <Section
+        id="outputs"
         eyebrow="What you keep"
         title="Outputs that stay with your project."
         className="tinted"

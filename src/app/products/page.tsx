@@ -19,7 +19,7 @@ export default function Products() {
       <Hero
         eyebrow="The Lab Agent Works platform"
         title="Specialized agents. A shared scientific foundation."
-        description="Tools built around distinct scientific workflows, connected by local computation, maintained guidance, and researcher control."
+        description="Lab Agent Works develops specialized scientific analysis agents. Starting with scRNA-agent, each tool is built around local computation, maintained guidance, and researcher control."
       />
       <Section className="tinted">
         <div className="split">

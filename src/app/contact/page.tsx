@@ -26,8 +26,7 @@ export default function Page() {
             {site.email} <span aria-hidden="true">↗</span>
           </a>
           <p className="caption">
-            Support contact placeholder. Mailbox availability will be confirmed
-            before release.
+            Support availability will be confirmed with the scRNA-agent release.
           </p>
           <p>
             Please describe your question without attaching raw scientific data

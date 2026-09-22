@@ -12,7 +12,7 @@ export default function Page() {
     <>
       <Hero
         eyebrow="Download / scRNA-agent"
-        title="Your next analysis starts here."
+        title="Your local workspace for single-cell analysis."
         description="A Windows application with a local scientific workspace and guided setup. Bring your own data, biological questions, and model access."
       />
       <Section className="tinted">
@@ -35,43 +35,68 @@ export default function Page() {
             {release.url ? (
               <Button href={release.url}>Download signed installer</Button>
             ) : (
-              <button className="button button-placeholder" disabled>
-                Windows installer coming soon
-              </button>
+              <div className="availability-note">
+                <p>
+                  The Windows installer is not yet available. The signed
+                  download will be published here when it is ready.
+                </p>
+                <div className="button-row">
+                  <Button href="/docs" secondary>
+                    Explore setup & documentation
+                  </Button>
+                </div>
+              </div>
             )}
             <p className="caption">
               Installer and system requirements will be published with the
               release.
             </p>
           </div>
-          <dl className="release-details">
-            {[
-              [
-                "Installer",
-                release.url
-                  ? "Signed Windows installer"
-                  : "Signed installer pending",
-              ],
-              ["Version", release.version ?? "Not yet published"],
-              ["Release date", release.date ?? "Not yet published"],
-              ["SHA-256", release.sha256 ?? "Published with installer"],
-            ].map(([k, v]) => (
-              <div key={k}>
-                <dt>{k}</dt>
-                <dd>{v}</dd>
-              </div>
-            ))}
-            <div>
-              <dt>Release notes</dt>
-              <dd>
-                {release.notesUrl ? (
-                  <Link href={release.notesUrl}>Read release notes ↗</Link>
-                ) : (
-                  "Available with release"
-                )}
-              </dd>
-            </div>
-          </dl>
+          <div className="release-card">
+            <p className="eyebrow">Release information</p>
+            <h3>
+              {release.url ? "Installer details" : "What to expect at release"}
+            </h3>
+            {!release.url && (
+              <ul>
+                <li>A signed Windows installer with guided setup</li>
+                <li>Supported system requirements and setup instructions</li>
+                <li>Version, release notes, and a SHA-256 checksum</li>
+              </ul>
+            )}
+            <details
+              className="release-disclosure"
+              open={release.url ? true : undefined}
+            >
+              <summary>Version & verification details</summary>
+              <dl className="release-details">
+                {[
+                  [
+                    "Installer",
+                    release.url ? "Signed Windows installer" : "Coming soon",
+                  ],
+                  ["Version", release.version ?? "Not yet published"],
+                  ["Release date", release.date ?? "Not yet published"],
+                  ["SHA-256", release.sha256 ?? "Published with installer"],
+                ].map(([k, v]) => (
+                  <div key={k}>
+                    <dt>{k}</dt>
+                    <dd>{v}</dd>
+                  </div>
+                ))}
+                <div>
+                  <dt>Release notes</dt>
+                  <dd>
+                    {release.notesUrl ? (
+                      <Link href={release.notesUrl}>Read release notes ↗</Link>
+                    ) : (
+                      "Available with release"
+                    )}
+                  </dd>
+                </div>
+              </dl>
+            </details>
+          </div>
         </div>
       </Section>
       <Section title="A guided path to your workspace.">

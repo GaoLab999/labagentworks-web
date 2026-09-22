@@ -10,33 +10,37 @@ export default function Page() {
   return (
     <>
       <Hero
-        eyebrow="Pricing & membership"
+        eyebrow="scRNA-agent / Pricing & membership"
         title="Start exploring. Build on your work."
-        description="A straightforward trial and membership structure for access to protected scientific analysis. Pricing and checkout will be available with the release."
-      />
+        description="Start with a 14-day trial, then choose monthly or annual membership for protected scientific analysis. Prices and enrollment will be announced with the Windows release."
+      >
+        <div className="button-row">
+          <Badge>Membership opens with the application release</Badge>
+        </div>
+      </Hero>
       <Section>
         <div className="pricing-grid">
           {[
             [
               "14-day free trial",
-              "A place to start",
+              "Explore scRNA-agent with your own data.",
               "No credit card required",
               "Full protected analysis access during trial",
               "Trial available with release",
             ],
             [
               "Monthly membership",
-              "Room to explore",
+              "Monthly access to scRNA-agent.",
               "Price to be announced",
               "Protected scientific analysis and maintained guidance",
-              "Monthly checkout coming soon",
+              "Monthly membership coming soon",
             ],
             [
               "Annual membership",
-              "A longer research horizon",
+              "Annual access to scRNA-agent.",
               "Price to be announced",
               "Protected scientific analysis and maintained guidance",
-              "Annual checkout coming soon",
+              "Annual membership coming soon",
             ],
           ].map(([title, sub, price, detail, status], i) => (
             <article
@@ -48,9 +52,7 @@ export default function Page() {
               <p>{sub}</p>
               <p className="price-label">{price}</p>
               <p>{detail}</p>
-              <button disabled className="button button-placeholder">
-                {status}
-              </button>
+              <p className="availability-note">{status}</p>
             </article>
           ))}
         </div>
@@ -58,6 +60,9 @@ export default function Page() {
           Your own AI/model access is required. Any model-provider charges are
           separate.
         </p>
+        <Button href="/download" secondary>
+          View release availability
+        </Button>
       </Section>
       <Section
         title="Your work remains yours."

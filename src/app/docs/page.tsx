@@ -27,7 +27,7 @@ const topics = [
     "Analysis workflow",
     "Follow an adaptable framework from data intake and quality control through annotation and downstream analysis.",
     "View the workflow",
-    "/products/scrna-agent",
+    "/products/scrna-agent#workflow",
   ],
   [
     "projects",
@@ -41,7 +41,7 @@ const topics = [
     "Figures and reports",
     "Review scientist-facing summaries alongside figures, tables, analysis artifacts, and technical reports. Export instructions are coming with release.",
     "Explore project outputs",
-    "/products/scrna-agent",
+    "/products/scrna-agent#outputs",
   ],
   [
     "privacy-data",
@@ -72,7 +72,11 @@ export default function Page() {
         eyebrow="Documentation"
         title="Get oriented. Then go deeper."
         description="A starting point for working with scRNA-agent. Detailed operational guides will be published alongside the Windows release."
-      />
+      >
+        <div className="button-row">
+          <Badge>Full guides coming with the Windows release</Badge>
+        </div>
+      </Hero>
       <Section>
         <div className="docs-layout">
           <nav className="docs-nav" aria-label="Documentation topics">
@@ -86,7 +90,6 @@ export default function Page() {
           <div>
             {topics.map(([id, title, body, label, url]) => (
               <article className="doc-topic" id={id} key={id}>
-                <Badge>Guide preview</Badge>
                 <h2>{title}</h2>
                 <p>{body}</p>
                 <Link className="text-link" href={url}>

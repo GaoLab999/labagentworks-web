@@ -34,7 +34,8 @@ export default function Home() {
           </p>
           <p className="hero-detail">
             Lab Agent Works develops specialized AI-assisted tools that bring
-            biological questions and computational analysis closer together.
+            biological questions and computational analysis closer together. Our
+            first product is scRNA-agent, for single-cell RNA-seq analysis.
           </p>
           <div className="button-row">
             <Button href="/products/scrna-agent">Explore scRNA-agent</Button>
@@ -61,10 +62,8 @@ export default function Home() {
       <Section eyebrow="01 / Meet the first agent" className="product-section">
         <div className="product-intro">
           <div>
-            <Badge>First product · Coming soon</Badge>
-            <p className="product-name">
-              scRNA-agent<span>↗</span>
-            </p>
+            <Badge>From Lab Agent Works · Coming soon</Badge>
+            <p className="product-name">scRNA-agent</p>
             <h2>
               Single-cell RNA-seq
               <br />
@@ -111,7 +110,7 @@ export default function Home() {
       <Section
         eyebrow="02 / Local by design"
         title={"Your data stay close.\nYour analysis moves forward."}
-        description="Scientific computation happens on your computer. The protected Core brings maintained workflows, skills, and guidance to your local workspace."
+        description="Raw matrices stay on your computer, where R and Python run the analysis. The protected Core provides maintained workflows and scientific guidance without needing your raw dataset."
         className="tinted"
       >
         <ArchitectureDiagram />
