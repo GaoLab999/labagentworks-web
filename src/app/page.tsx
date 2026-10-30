@@ -1,3 +1,4 @@
+import { ResultsPreview, DemoPreview } from "@/components/research-beta";
 import Link from "next/link";
 import { ScRNAAgentLogo } from "@/components/scrna-agent-logo";
 import {
@@ -11,7 +12,6 @@ import {
   CellAtlas,
   ArchitectureDiagram,
   WorkflowDiagram,
-  Outputs,
 } from "@/components/diagrams";
 import { features } from "@/lib/site";
 export default function Home() {
@@ -20,26 +20,22 @@ export default function Home() {
       <section className="home-hero container">
         <div className="hero-copy">
           <p className="eyebrow">
-            <span className="tiny-line" /> Science, with you at the center
+            <span className="tiny-line" /> scRNA-agent / Researcher-directed discovery
           </p>
           <h1>
-            Scientific analysis
-            <br />
-            agents built for
-            <br />
-            <em>researchers.</em>
+            From single-cell data to <em>biological insight.</em>
           </h1>
           <p className="lead">
-            Work directly with your data. Keep scientific computation under your
-            control.
+            scRNA-agent is an AI-guided scientific analysis application that helps
+            researchers process, annotate, visualize and explore single-cell RNA-seq
+            data using established bioinformatics tools.
           </p>
           <p className="hero-detail">
-            Lab Agent Works develops specialized AI-assisted tools that bring
-            biological questions and computational analysis closer together. Our
-            first product is scRNA-agent, for single-cell RNA-seq analysis.
+            Free 7-day research beta after email verification. No credit card
+            needed. Windows download pending final acceptance.
           </p>
           <div className="button-row">
-            <Button href="/products/scrna-agent">Explore scRNA-agent</Button>
+            <Button href="/download">Windows research beta</Button>
             <Button href="/how-it-works" secondary>
               How it works
             </Button>
@@ -63,7 +59,7 @@ export default function Home() {
       <Section eyebrow="01 / Meet the first agent" className="product-section">
         <div className="product-intro">
           <div>
-            <Badge>From Lab Agent Works · Coming soon</Badge>
+            <Badge>From Lab Agent Works · Research beta</Badge>
             <p className="product-name product-lockup">
               <ScRNAAgentLogo compact />
               <span>scRNA-agent</span>
@@ -76,17 +72,16 @@ export default function Home() {
           </div>
           <div className="product-description">
             <p className="large-copy">
-              Your biological questions shouldn’t have to wait at the command
-              line.
+              AutoRun is a starting point. Your next question takes it further.
             </p>
             <p>
-              scRNA-agent helps you work from raw or processed single-cell data
-              through quality control, annotation, downstream analysis, figures,
-              and reports.
+              AutoRun generates an initial annotated dataset. Continue investigating
+              biological questions interactively with Codex, revise previous analysis
+              decisions and generate additional scientific results.
             </p>
             <p>
-              A local scientific workspace. Specialized protected guidance. You
-              stay involved in the decisions that matter.
+              Prefer a step-by-step approach? Guided Run keeps you involved in
+              analysis decisions. Scientific computation and project storage stay local.
             </p>
             <Link className="text-link" href="/products/scrna-agent">
               Get to know scRNA-agent <span aria-hidden="true">↗</span>
@@ -129,14 +124,8 @@ export default function Home() {
       >
         <WorkflowDiagram />
       </Section>
-      <Section
-        eyebrow="04 / Work you can build on"
-        title="More than an answer. A scientific record."
-        description="Keep useful outputs connected to the work behind them."
-        className="tinted"
-      >
-        <Outputs />
-      </Section>
+      <ResultsPreview />
+      <DemoPreview />
       <Section
         eyebrow="05 / Purpose-built assistance"
         title="Scientific tools. Thoughtfully connected."

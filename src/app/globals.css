@@ -1469,3 +1469,27 @@ h2 {
     animation: none !important;
   }
 }
+
+/* Research beta: quiet placeholders, with no simulated scientific results. */
+.beta-registration { margin-top: 20px; font-weight: 600; }
+.download-disabled:disabled { background: #dce5db; border-color: #aabdab; color: #496050; cursor: not-allowed; }
+.preview-disclosure { border-left: 3px solid #78998a; padding: 12px 20px; margin-block: 25px 32px; background: #fafbf7; }
+.results-grid { gap: 22px; }
+.result-card { border: 1px solid var(--line); background: var(--paper); border-radius: 8px; overflow: hidden; }
+.result-placeholder { min-height: 168px; padding: 25px; background: linear-gradient(135deg, #e0eadd, #eff3ef); display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
+.result-number { font-size: 38px; line-height: 1; color: #627d6f; font-weight: 400; }
+.placeholder-label { font-size: 14px; color: #4c6557; }
+.result-copy { padding: 25px; }
+.result-copy h3 { font-size: 23px; }
+.result-copy p { margin-bottom: 0; }
+.results-grid + .caption { margin-top: 24px; }
+.demo-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); margin-top: 35px; }
+.demo-card { padding: 28px 24px 0 0; }
+.demo-card h3 { font-size: 22px; line-height: 1.3; }
+.requirements-list { margin-top: 35px; }
+.requirements-list > div { display: grid; grid-template-columns: 1fr 3fr; gap: 35px; border-top: 1px solid var(--line); padding: 22px 0; }
+.requirements-list dt { font-weight: 600; }
+.requirements-list dd { margin: 0; color: var(--muted); }
+.download-panel > * { min-width: 0; }
+@media (max-width: 900px) { .demo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .requirements-list > div { grid-template-columns: 1fr; gap: 8px; } .demo-grid { grid-template-columns: 1fr; } .result-placeholder { min-height: 140px; } }

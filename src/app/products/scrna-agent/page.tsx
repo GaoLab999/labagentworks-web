@@ -35,7 +35,7 @@ export default function Product() {
       >
         <div className="button-row">
           <Button href="/download">View Windows availability</Button>
-          <Badge>Windows · Coming soon</Badge>
+          <Badge>Windows · Research beta pending acceptance</Badge>
         </div>
       </Hero>
       <Section

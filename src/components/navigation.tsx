@@ -7,7 +7,6 @@ const links = [
   ["How it works", "/how-it-works"],
   ["Privacy", "/privacy"],
   ["Docs", "/docs"],
-  ["Pricing", "/pricing"],
 ];
 export function Navbar() {
   const [open, setOpen] = useState(false);

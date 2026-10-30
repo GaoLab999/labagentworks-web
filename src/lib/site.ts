@@ -16,38 +16,43 @@ export function metadata(
     openGraph: { title, description, url: path, images: ["/og-image.png"] },
   };
 }
-// Populate only when a signed, verified public release is ready.
+// Keep disabled until final interactive Windows acceptance AND publication approval.
+// The candidate checksum is supplied for review; it is not proof of acceptance.
 export const release: {
+  approved: boolean;
   url: string | null;
-  version: string | null;
-  date: string | null;
-  sha256: string | null;
-  notesUrl: string | null;
-} = { url: null, version: null, date: null, sha256: null, notesUrl: null };
+  sourceCommit: string;
+  sha256: string;
+} = {
+  approved: false,
+  url: null,
+  sourceCommit: "e55d85e",
+  sha256: "c166067f8fe0c1ad532c52e7e0770ec1f5e7a5f0b6e2ff6c1bce870bd9f9a541",
+};
 export const features = [
   [
-    "Guided analysis workflow",
-    "Move from a biological question to a structured analysis, with decisions you can review.",
+    "AutoRun & Guided Run",
+    "Generate an initial annotated dataset automatically, or work through analysis with researcher oversight.",
   ],
   [
     "Local R / Python execution",
     "Run scientific tools in local environments, close to your data.",
   ],
   [
-    "Project-aware AI assistance",
-    "Work with an agent that uses your project context to support the next step.",
+    "Interactive exploration with Codex",
+    "Ask new biological questions, revise earlier decisions and continue analyzing your annotated dataset.",
   ],
   [
-    "Reference-resource handling",
-    "Acquire supported reference resources automatically when an analysis needs them.",
+    "Differential expression & enrichment",
+    "Investigate biological comparisons with differential expression, pathway enrichment and GSEA.",
   ],
   [
     "Reproducible figures and reports",
     "Keep generated figures and reports connected to the analysis that produced them.",
   ],
   [
-    "Versioned analysis guidance",
-    "Use maintained guidance with versions that can be traced across your work.",
+    "Reusable annotated datasets",
+    "Keep annotated datasets, figures and reports available for further investigation.",
   ],
   [
     "Protected scientific skills",

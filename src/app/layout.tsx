@@ -5,16 +5,16 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://labagentworks.com"),
   title: {
-    default: "Lab Agent Works — Scientific Analysis Agents for Researchers",
+    default: "Lab Agent Works — scRNA-agent Research Beta",
     template: "%s | Lab Agent Works",
   },
   description:
-    "AI-assisted scientific analysis tools that help researchers work directly with their data using local scientific computation and specialized analysis guidance.",
+    "From single-cell data to biological insight with scRNA-agent. Local scientific computation, interactive exploration and a free seven-day research beta.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "Lab Agent Works",
-    title: "Lab Agent Works — Scientific Analysis Agents for Researchers",
+    title: "Lab Agent Works — scRNA-agent Research Beta",
     description:
       "Researcher-directed analysis. Local scientific computation. Specialized guidance.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],

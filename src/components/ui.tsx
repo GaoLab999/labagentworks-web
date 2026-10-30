@@ -156,15 +156,15 @@ export function FAQ() {
     ],
     [
       "Do I need my own AI access?",
-      "Yes. scRNA-agent uses your own model authentication for AI reasoning and execution. Provider availability, terms, and charges are separate from Lab Agent Works membership.",
+      "Yes. Connect and authenticate your own Codex access. Provider access requirements are separate from the free research beta.",
     ],
     [
-      "What happens when membership ends?",
-      "Existing local projects and results remain available. Active membership is required for new protected scientific analysis.",
+      "What happens when the trial ends?",
+      "Existing project files and results are preserved. After the seven-day trial expires, new Workbench access requires authorization.",
     ],
     [
       "Can I download it now?",
-      "The Windows installer is coming soon. The download page will carry the signed installer and verified release details when available.",
+      "Not yet. The unsigned Windows candidate is awaiting final interactive Windows acceptance. The download page explains setup and the free seven-day research beta.",
     ],
   ];
   return (

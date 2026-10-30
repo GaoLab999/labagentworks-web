@@ -4,7 +4,7 @@ import { metadata } from "@/lib/site";
 export const generateMetadata = () =>
   metadata(
     "Documentation",
-    "Getting started, data, workflows, projects, reports, privacy, and membership documentation for scRNA-agent.",
+    "Getting started, data, workflows, projects, reports, privacy, and research-beta documentation for scRNA-agent.",
     "/docs/",
   );
 const topics = [
@@ -52,10 +52,10 @@ const topics = [
   ],
   [
     "membership",
-    "Account and membership",
-    "Learn about the 14-day trial, protected analysis access, and access to existing local results after membership ends.",
-    "View membership",
-    "/pricing",
+    "Account and research beta",
+    "Register and verify your email inside Workbench for a free seven-day research evaluation. One trial per new account; no payment required. Project files are preserved after expiration.",
+    "View research-beta access",
+    "/download#trial",
   ],
   [
     "troubleshooting",
