@@ -16,18 +16,17 @@ export function metadata(
     openGraph: { title, description, url: path, images: ["/og-image.png"] },
   };
 }
-// Keep disabled until final interactive Windows acceptance AND publication approval.
-// The candidate checksum is supplied for review; it is not proof of acceptance.
-export const release: {
-  approved: boolean;
-  url: string | null;
-  sourceCommit: string;
-  sha256: string;
-} = {
-  approved: false,
-  url: null,
-  sourceCommit: "e55d85e",
-  sha256: "c166067f8fe0c1ad532c52e7e0770ec1f5e7a5f0b6e2ff6c1bce870bd9f9a541",
+// Public distribution approved; automated build checks passed.
+// Interactive Windows/WSL qualification remains pending (see download page).
+// Keep version/checksum and the versioned asset together when publishing updates.
+export const release = {
+  approved: true,
+  version: "0.3.0-beta.1",
+  url: "https://github.com/GaoLab999/labagentworks-web/releases/latest/download/scRNA-agent-Setup.exe",
+  versionedUrl: "https://github.com/GaoLab999/labagentworks-web/releases/download/scrna-agent-windows-0.3.0-beta.1/scrna-agent-setup-0.3.0-beta.1.exe",
+  notesUrl: "https://github.com/GaoLab999/labagentworks-web/releases/tag/scrna-agent-windows-0.3.0-beta.1",
+  sourceCommit: "472f45692765cb735a28650c29789cd6d66472ae",
+  sha256: "bcfaa1cd0817b0a5c6cbebb9460595be004181bad000a21785a9a2b0f662c9ca",
 };
 export const features = [
   [

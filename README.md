@@ -30,7 +30,7 @@ The preview command uses Python 3 to serve `out/` at http://localhost:3000. Any 
 - `/how-it-works/` — local workspace, model access, and protected Core
 - `/privacy/` — architectural data-handling explanation
 - `/pricing/` — retained legacy URL explaining the free seven-day research beta; no pricing table or checkout
-- `/download/` — disabled Windows download, candidate metadata, three-step setup, requirements and trial details
+- `/download/` — public Windows download, verified release metadata, three-step setup, requirements and trial details
 - `/docs/` — eight documentation preview sections with working anchor links
 - `/contact/` — contact placeholder
 
@@ -49,59 +49,49 @@ References: [Cloudflare static Next.js deployment](https://developers.cloudflare
 
 Cloudflare credentials are not stored in this repository. Production metadata currently uses `https://labagentworks.com`. Update `src/lib/site.ts`, `src/app/layout.tsx`, and `src/app/robots.ts` if the canonical domain changes. Keep staging previews out of search indexing using Cloudflare's preview controls.
 
-## Research-beta review and publication handoff
+## Windows installer publication and website deployment
 
-Website publication on `main` is approved for this research-beta introduction.
-Installer publication remains separately restricted pending final Windows acceptance.
-The source remote is `git@github.com:GaoLab999/labagentworks-web.git`.
-The repository documents Cloudflare Pages (`npm run build`, output `out/`).
-The existing GitHub integration is Cloudflare Workers and Pages, project
-`labagentworks-web`. Its check on the previous `main` commit `3089dfb` reports
-a successful deployment (`13465265-c969-4568-96ab-c99122637d22`). Push approved
-website changes to `origin/main`, monitor that commit’s Cloudflare Pages check,
-and verify the custom domain. No hosting configuration was changed.
+Production uses the existing GitHub-connected Cloudflare Pages project
+`labagentworks-web`, building `main` with `npm run build` and output `out/`.
+There is no repository GitHub Actions deployment workflow: a push to `main`
+triggers the Cloudflare Pages GitHub check. Preserve that integration.
 
-### Release gate
+Public Windows research beta: **0.3.0-beta.1**. The EXE is not Authenticode-signed.
+Automated packaging/native Windows checks passed; full interactive Windows/WSL
+qualification remains pending. Public distribution was explicitly requested.
 
-`src/lib/site.ts` records candidate `e55d85e` and the user-supplied installer SHA-256
-`c166067f8fe0c1ad532c52e7e0770ec1f5e7a5f0b6e2ff6c1bce870bd9f9a541`.
-`release.approved` is **false** and `release.url` is **null**. Both acceptance
-approval and a URL are required to render a download link. No installer is stored
-in this repository, uploaded, or exposed by this preparation task.
+- Application source: `472f45692765cb735a28650c29789cd6d66472ae`.
+- Successful installer run: `GaoLab999/scrna-agent/actions/runs/43156278457`.
+- Artifact: `scrna-agent-windows-private-beta` (ID `13915544108`).
+- Matching signed application payload run: `43154596926`.
+- EXE size: 2,548,224 bytes.
+- SHA-256: `bcfaa1cd0817b0a5c6cbebb9460595be004181bad000a21785a9a2b0f662c9ca`.
 
-Before **installer** publication (the website may be published with downloads disabled):
+The application repository is private. Distribute only the installer, checksum
+files, and its build manifest as GitHub Release assets in this existing public
+website repository; no application source or hosting infrastructure is added.
+Release tag: `scrna-agent-windows-0.3.0-beta.1`.
 
-1. Complete final interactive Windows acceptance of the exact installer bytes.
-   Independently verify the checksum; replace candidate metadata if the installer changes.
-2. Confirm supported Windows versions and publish measured RAM/disk guidance.
-   Resolve the documentation discrepancy described below.
-3. Review evaluation terms and service privacy disclosures. The existing privacy
-   page is an architecture explanation, not a complete legal policy; there is no
-   existing Terms page. Confirm support mailbox readiness. No commercial or
-   institutional licensing approval is implied by this website.
-4. Approve installer distribution and website publication explicitly. Confirm the
-   existing Pages project and its production branch before pushing to `main`.
-5. Host the approved installer at an immutable, versioned HTTPS URL, verify the
-   served checksum, set `release.url` and `release.approved`, and update candidate
-   status copy to reflect the accepted release. Rerun lint, typecheck, build and
-   browser checks. Commit/push/deploy only with approval.
-6. After approved publication, check the live homepage, download, checksum,
-   mobile navigation and setup instructions. Account registration stays inside
-   Workbench; do not add website registration or payment flows.
+Stable public URL:
+https://github.com/GaoLab999/labagentworks-web/releases/latest/download/scRNA-agent-Setup.exe
 
-### Installer hosting recommendation
+Each published installer release includes a constant `scRNA-agent-Setup.exe`
+asset as well as the original versioned filename. GitHub's latest-release alias
+requires a published, non-prerelease release; this distribution setting does not
+mean production qualification. The release title, notes, and website explicitly
+identify the software as a research beta. Only designate a release latest after
+verifying its installer. Retain versioned assets for reproducibility.
 
-Keep the existing static website and Cloudflare account. For an installer within
-Cloudflare Pages' **25 MiB per-file limit**, a versioned static download asset in
-the existing deployment is simplest (add it during release packaging, not as a
-large binary in Git). If the installer exceeds that limit, use Cloudflare R2 with
-a downloads custom domain in the existing account and an immutable object name
-containing the version/commit. No R2 bucket or domain is created by this task.
-Check actual installer size before choosing; this task did not retrieve the binary.
-Do not use an expiring private GitHub Actions artifact as a public download URL.
+For future releases, retrieve the successful Actions installer artifact, verify
+its EXE against the manifest and checksum file, upload the unchanged versioned
+EXE and constant-name copy, and update `src/lib/site.ts` with its version, source,
+checksum, and versioned URLs. Publish the release as latest. Verify both download
+URLs without credentials and compare their hashes. Run lint, typecheck and build,
+commit/push `main`, monitor its Cloudflare Pages check, and verify `/download/`.
+Registration remains in Workbench; the website does not gate the public download.
 
-Source: [Cloudflare Pages limits](https://developers.cloudflare.com/pages/platform/limits/).
-The current documentation recommends R2/custom domains for larger files.
+The following sections preserve the original October candidate review history;
+the release metadata and provenance above supersede that candidate.
 
 ### Content evidence and limitations
 
