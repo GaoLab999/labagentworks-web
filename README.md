@@ -30,7 +30,7 @@ The preview command uses Python 3 to serve `out/` at http://localhost:3000. Any 
 - `/how-it-works/` — local workspace, model access, and protected Core
 - `/privacy/` — architectural data-handling explanation
 - `/pricing/` — retained legacy URL explaining the free seven-day research beta; no pricing table or checkout
-- `/download/` — public Windows download, verified release metadata, three-step setup, requirements and trial details
+- `/download/` — public Windows and Apple Silicon Mac downloads, verified release metadata, three-step setup, requirements and trial details
 - `/docs/` — eight documentation preview sections with working anchor links
 - `/contact/` — contact placeholder
 
@@ -164,3 +164,50 @@ No environment variables are currently required. Future local configuration belo
 ## Accessibility and behavior
 
 Keyboard-visible focus, a skip link, native FAQ disclosures, a button-operated mobile menu, semantic landmarks, reduced-motion support, and descriptive illustration labeling are included. Availability notices use explicit text and working next-step links. No unavailable action is presented as an active button. Small text is at least 14px, supporting copy is 15–16px, and body text is 16px. The homepage principles strip stays at 16px on mobile. The illustrative SVG atlas is level and keeps its original aspect ratio. The footer year updates at build time; rebuild annually to refresh it.
+
+## Apple Silicon Mac research-beta publication
+
+The existing Mac workflow in the private application repository produced the DMG
+for source `7b0fec72c8f029327fa016f7eafcbca2acf58680`, run `43233064663`.
+Both jobs passed: real ARM64 baseline numerical validation, 36 security/installed
+workflow/package approval tests (one optional AUCell skip), native Swift launcher
+compilation/process smoke, ad-hoc signature and DMG verification. Physical-Mac
+Lima startup was NOT RUN on the hosted Mac. Native macOS R/Python and Intel Macs
+are not supported; scientific execution uses the existing Lima Ubuntu ARM64 VM.
+
+Version: **0.3.0-beta.1**. Ad-hoc signed, not Apple Developer ID signed or notarized.
+Warnings or blocked installation remain possible. AUCell is optional and not
+preinstalled; live package installation/scoring and real Mac setup remain unverified.
+
+Public installer-only prerelease (not latest):
+https://github.com/GaoLab999/labagentworks-web/releases/tag/scrna-agent-macos-0.3.0-beta.1
+
+Durable public DMG:
+https://github.com/GaoLab999/labagentworks-web/releases/download/scrna-agent-macos-0.3.0-beta.1/scRNA-agent-macos-arm64.dmg
+
+SHA-256: `b4067adf5cc62ab849400f76b9453971ff89edf36457384025db728b82643b7e`.
+The DMG was downloaded without GitHub authentication and matched the Actions bytes.
+Only the DMG, checksum and qualification metadata were uploaded. The private
+application repository and credentials were not published. The Windows latest
+release remains `scrna-agent-windows-0.3.0-beta.1`; its existing URL and checksum
+are unchanged. Mac updates must continue using versioned URLs or preserve all
+Windows assets before any deliberate change to the shared latest alias.
+
+Development closeout: base `f237c7a46cd9794a44e2d1ff98c79b5ed5bd1cd6`, clean checkout.
+Category A: `src/lib/site.ts`, `src/app/download/page.tsx`, `README.md`. No unrelated
+B/C/E changes. A temporary node_modules symlink reused existing dependencies with
+an identical package lock; it is category D and is removed before commit. No
+package installation, dependency/config change or new deployment infrastructure.
+Lint, TypeScript and the static production build passed again with final verified
+metadata before staging. Both download links, the exact Mac checksum and signing
+label were checked in rendered HTML; Windows release metadata is byte-identical. The local restricted build failed
+to read TypeScript subprocess output; the unrestricted existing Webpack fallback
+passed. Cloudflare retains `npm run build`, output `out/`, and main-branch Git
+integration. Static output preserves Windows and renders the Mac requirements,
+source/version/checksum, signing limitations and installation instructions.
+
+Recommended authorized commit:
+
+```sh
+git commit -m "Publish verified Apple Silicon Mac research beta download"
+```

@@ -2,13 +2,13 @@ import Link from "next/link";
 import { ScRNAAgentLogo } from "@/components/scrna-agent-logo";
 import { Hero, Section, Badge, Button, FeatureCard } from "@/components/ui";
 import { TrialDetails } from "@/components/research-beta";
-import { metadata, release, site } from "@/lib/site";
-export const generateMetadata = () => metadata("scRNA-agent for Windows — Research beta", "Free 7-day research beta after email verification. No credit card needed. Windows setup and installer availability.", "/download/");
+import { metadata, release, macRelease, site } from "@/lib/site";
+export const generateMetadata = () => metadata("scRNA-agent for Windows and Mac — Research beta", "Free 7-day research beta after email verification. No credit card needed. Windows and Apple Silicon Mac setup and installer availability.", "/download/");
 export default function Page() {
   const downloadAvailable = release.approved && Boolean(release.url);
   return (
     <>
-      <Hero eyebrow="scRNA-agent / Windows research beta" title="scRNA-agent for Windows" description="From your first annotated dataset to your next biological question. A local scientific workspace, with guided setup.">
+      <Hero eyebrow="scRNA-agent / Research beta" title="scRNA-agent for Windows and Mac" description="From your first annotated dataset to your next biological question. A local scientific workspace, with guided setup.">
         <div className="button-row"><Badge>Free 7-day research beta</Badge></div>
         <p className="beta-registration">Public download — no GitHub account needed. Email registration in Workbench is required for beta access; no credit card needed.</p>
       </Hero>
@@ -21,7 +21,7 @@ export default function Page() {
               <button className="button download-disabled" disabled aria-describedby="download-status">Download for Windows <span aria-hidden="true">↓</span></button>
               <p id="download-status" className="availability-note">Download not yet available. This candidate is awaiting final interactive Windows acceptance.</p>
             </>}
-            <p className="caption">Windows x64 · macOS support is not yet available.</p>
+            <p className="caption">Windows x64</p>
             <Link href="#installation" className="text-link">See the three setup steps ↓</Link>
           </div>
           <div className="release-card">
@@ -36,6 +36,36 @@ export default function Page() {
             <p><a className="text-link" href={release.versionedUrl}>Download this exact version ↗</a></p>
             <p><a className="text-link" href={release.notesUrl}>Release notes &amp; checksum file ↗</a></p>
             <p className="caption">SHA-256 independently verified against the GitHub Actions artifact. This checksum applies to version {release.version}. The main download button follows the latest published installer.</p>
+          </div>
+        </div>
+      </Section>
+      <Section id="mac" eyebrow="Apple Silicon research beta" title="Download for Mac">
+        <div className="download-panel">
+          <div>
+            <h3>Local science on your Apple Silicon Mac</h3>
+            <p>The native Mac launcher prepares R and Python in a local Lima Ubuntu ARM64 virtual machine. Intel Macs are not supported.</p>
+            {macRelease.approved && macRelease.url ? <Button href={macRelease.url}>Download for Mac — Apple Silicon</Button> : <p>Mac installer verification is in progress.</p>}
+            <p className="caption">macOS 14 or later · Apple Silicon · 16 GiB RAM · at least 50 GiB free disk, plus space for data. Larger studies may need more resources.</p>
+            <h3>Install and set up</h3>
+            <ol>
+              <li>Download the DMG, open it, and drag scRNA-agent into Applications.</li>
+              <li>Open scRNA-agent and choose Set Up. Approve the Lima, Ubuntu and scientific-package downloads. When replacing an earlier version, stop its Workbench first and run Set Up again; projects and intact environments are preserved.</li>
+              <li>Choose Open Workbench, connect your Codex account, and verify your email. Place input files in <code>~/scRNA-agent-import</code>; projects and results are stored in the local VM.</li>
+            </ol>
+            <p>The app is ad-hoc signed, without Apple Developer ID signing or notarization. macOS Gatekeeper or institutional policies may block opening it. Warning-free installation is not guaranteed; do not disable security protections.</p>
+          </div>
+          <div className="release-card">
+            <p className="eyebrow">Mac research beta</p><h3>Installer verification</h3>
+            <dl className="release-details">
+              <div><dt>Application version</dt><dd>{macRelease.version}</dd></div>
+              <div><dt>Architecture</dt><dd>Apple Silicon (ARM64)</dd></div>
+              <div><dt>Source commit</dt><dd><code>{macRelease.sourceCommit}</code></dd></div>
+              <div><dt>Signing</dt><dd>Ad-hoc signed; not notarized</dd></div>
+              <div><dt>Installer SHA-256</dt><dd><code>{macRelease.sha256}</code></dd></div>
+            </dl>
+            {macRelease.notesUrl && <p><a className="text-link" href={macRelease.notesUrl}>Release notes &amp; checksum file ↗</a></p>}
+            <p className="caption">Automated ARM64 runtime and Mac packaging checks are separate from physical-Mac acceptance. Lima startup on a physical Mac, live Codex login and optional AUCell installation remain unverified.</p>
+            <p className="caption">R/Python packages require Workbench approval and persist inside the managed guest environment. AUCell is optional, not preinstalled.</p>
           </div>
         </div>
       </Section>

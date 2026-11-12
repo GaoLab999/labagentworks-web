@@ -28,6 +28,16 @@ export const release = {
   sourceCommit: "472f45692765cb735a28650c29789cd6d66472ae",
   sha256: "bcfaa1cd0817b0a5c6cbebb9460595be004181bad000a21785a9a2b0f662c9ca",
 };
+// Verified against the Actions artifact and an anonymous public download.
+// Mac remains a prerelease; preserve the Windows latest-release alias above.
+export const macRelease = {
+  approved: true,
+  version: "0.3.0-beta.1",
+  url: "https://github.com/GaoLab999/labagentworks-web/releases/download/scrna-agent-macos-0.3.0-beta.1/scRNA-agent-macos-arm64.dmg",
+  notesUrl: "https://github.com/GaoLab999/labagentworks-web/releases/tag/scrna-agent-macos-0.3.0-beta.1",
+  sourceCommit: "7b0fec72c8f029327fa016f7eafcbca2acf58680",
+  sha256: "b4067adf5cc62ab849400f76b9453971ff89edf36457384025db728b82643b7e",
+};
 export const features = [
   [
     "AutoRun & Guided Run",
