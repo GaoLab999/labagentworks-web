@@ -60,35 +60,45 @@ Public Windows research beta: **0.3.0-beta.1**. The EXE is not Authenticode-sign
 Automated packaging/native Windows checks passed; full interactive Windows/WSL
 qualification remains pending. Public distribution was explicitly requested.
 
-- Application source: `472f45692765cb735a28650c29789cd6d66472ae`.
-- Successful installer run: `GaoLab999/scrna-agent/actions/runs/43156278457`.
-- Artifact: `scrna-agent-windows-private-beta` (ID `13915544108`).
-- Matching signed application payload run: `43154596926`.
-- EXE size: 2,548,224 bytes.
-- SHA-256: `bcfaa1cd0817b0a5c6cbebb9460595be004181bad000a21785a9a2b0f662c9ca`.
+- Application source: `9ef73fb33dfe0f14245d378588cf3ec483d3c9f4`.
+- Scientific runtime: `0.1.0-alpha.3`.
+- Successful installer run: `GaoLab999/scrna-agent/actions/runs/44236431232`.
+- Artifact: `scrna-agent-windows-private-beta` (ID `14397895527`).
+- EXE size: 2,553,344 bytes.
+- SHA-256: `4cf3c42eef954d5eef29b77633626fe402b4944c595c24ab6bdc4f25bc796656`.
 
-The application repository is private. Distribute only the installer, checksum
-files, and its build manifest as GitHub Release assets in this existing public
-website repository; no application source or hosting infrastructure is added.
-Release tag: `scrna-agent-windows-0.3.0-beta.1`.
+The application repository is private. Distribute only the unchanged installer,
+checksum files, and build manifest as GitHub Release assets in this existing
+public website repository. No application rebuild, source publication or new
+hosting infrastructure is needed.
+Release tag: `scrna-agent-windows-0.3.0-beta.1-9ef73fb`.
 
-Stable public URL:
+The download page pins the verified build:
+https://github.com/GaoLab999/labagentworks-web/releases/download/scrna-agent-windows-0.3.0-beta.1-9ef73fb/scRNA-agent-Setup.exe
+
+The existing stable public alias also resolves to this release:
 https://github.com/GaoLab999/labagentworks-web/releases/latest/download/scRNA-agent-Setup.exe
 
-Each published installer release includes a constant `scRNA-agent-Setup.exe`
+Each published Windows installer release includes a constant `scRNA-agent-Setup.exe`
 asset as well as the original versioned filename. GitHub's latest-release alias
 requires a published, non-prerelease release; this distribution setting does not
 mean production qualification. The release title, notes, and website explicitly
-identify the software as a research beta. Only designate a release latest after
-verifying its installer. Retain versioned assets for reproducibility.
+identify the software as a research beta. Use a new commit-specific tag when the
+application version is unchanged; retain previous releases for reproducibility.
+
+Existing users should finish active analysis/setup, open the new installer, select
+their current WSL distribution and choose **Install / Update** (**Install / update
+application**). Projects, results, configuration and compatible environments remain
+in place. There is no background auto-update.
 
 For future releases, retrieve the successful Actions installer artifact, verify
-its EXE against the manifest and checksum file, upload the unchanged versioned
-EXE and constant-name copy, and update `src/lib/site.ts` with its version, source,
-checksum, and versioned URLs. Publish the release as latest. Verify both download
+its EXE against the expected checksum, manifest and checksum file, upload the
+unchanged EXE assets, and update `src/lib/site.ts` with version, runtime, source,
+checksum and versioned URLs. Publish the release as latest. Verify the public
 URLs without credentials and compare their hashes. Run lint, typecheck and build,
 commit/push `main`, monitor its Cloudflare Pages check, and verify `/download/`.
-Registration remains in Workbench; the website does not gate the public download.
+Preserve the Mac release, download URL and metadata. Registration remains in
+Workbench; the website does not gate the public download.
 
 The following sections preserve the original October candidate review history;
 the release metadata and provenance above supersede that candidate.

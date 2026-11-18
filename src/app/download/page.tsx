@@ -22,20 +22,22 @@ export default function Page() {
               <p id="download-status" className="availability-note">Download not yet available. This candidate is awaiting final interactive Windows acceptance.</p>
             </>}
             <p className="caption">Windows x64</p>
+            <p><strong>Already using scRNA-agent?</strong> Finish active analysis or setup, open this installer, select your current WSL distribution and choose <strong>Install / Update</strong> (Install / update application). Your projects, results, configuration and compatible environments remain in place.</p>
             <Link href="#installation" className="text-link">See the three setup steps ↓</Link>
           </div>
           <div className="release-card">
             <p className="eyebrow">Windows research beta</p><h3>Installer verification</h3>
             <p>The EXE is not Authenticode-signed. Automated build checks passed; full interactive Windows / WSL qualification remains pending.</p>
             <dl className="release-details">
-              <div><dt>Installer version</dt><dd>{release.version}</dd></div>
+              <div><dt>Application version</dt><dd>{release.version}</dd></div>
+              <div><dt>Scientific runtime</dt><dd>{release.runtimeVersion}</dd></div>
               <div><dt>Source commit</dt><dd><code>{release.sourceCommit}</code></dd></div>
               <div><dt>Status</dt><dd>{downloadAvailable ? "Public research beta" : "Windows acceptance pending"}</dd></div>
               <div><dt>Installer SHA-256</dt><dd><code>{release.sha256}</code></dd></div>
             </dl>
             <p><a className="text-link" href={release.versionedUrl}>Download this exact version ↗</a></p>
             <p><a className="text-link" href={release.notesUrl}>Release notes &amp; checksum file ↗</a></p>
-            <p className="caption">SHA-256 independently verified against the GitHub Actions artifact. This checksum applies to version {release.version}. The main download button follows the latest published installer.</p>
+            <p className="caption">SHA-256 independently verified against the GitHub Actions artifact. This checksum applies to application {release.version}, build {release.sourceCommit.slice(0, 7)}. Both Windows download links point to this exact verified build.</p>
           </div>
         </div>
       </Section>

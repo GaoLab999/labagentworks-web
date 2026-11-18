@@ -22,14 +22,15 @@ export function metadata(
 export const release = {
   approved: true,
   version: "0.3.0-beta.1",
-  url: "https://github.com/GaoLab999/labagentworks-web/releases/latest/download/scRNA-agent-Setup.exe",
-  versionedUrl: "https://github.com/GaoLab999/labagentworks-web/releases/download/scrna-agent-windows-0.3.0-beta.1/scrna-agent-setup-0.3.0-beta.1.exe",
-  notesUrl: "https://github.com/GaoLab999/labagentworks-web/releases/tag/scrna-agent-windows-0.3.0-beta.1",
-  sourceCommit: "472f45692765cb735a28650c29789cd6d66472ae",
-  sha256: "bcfaa1cd0817b0a5c6cbebb9460595be004181bad000a21785a9a2b0f662c9ca",
+  runtimeVersion: "0.1.0-alpha.3",
+  url: "https://github.com/GaoLab999/labagentworks-web/releases/download/scrna-agent-windows-0.3.0-beta.1-9ef73fb/scRNA-agent-Setup.exe",
+  versionedUrl: "https://github.com/GaoLab999/labagentworks-web/releases/download/scrna-agent-windows-0.3.0-beta.1-9ef73fb/scrna-agent-setup-0.3.0-beta.1.exe",
+  notesUrl: "https://github.com/GaoLab999/labagentworks-web/releases/tag/scrna-agent-windows-0.3.0-beta.1-9ef73fb",
+  sourceCommit: "9ef73fb33dfe0f14245d378588cf3ec483d3c9f4",
+  sha256: "4cf3c42eef954d5eef29b77633626fe402b4944c595c24ab6bdc4f25bc796656",
 };
 // Verified against the Actions artifact and an anonymous public download.
-// Mac remains a prerelease; preserve the Windows latest-release alias above.
+// Mac remains a prerelease; preserve the Windows latest-release alias when publishing.
 export const macRelease = {
   approved: true,
   version: "0.3.0-beta.1",
