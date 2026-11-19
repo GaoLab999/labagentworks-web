@@ -1,15 +1,26 @@
 # NIH Download Agent private beta deployment
 
-Status: code prepared on `feature/nih-download-agent-download`; not deployed.
-The owner will configure Cloudflare resources and secrets. Do not merge to main
-until storage, secrets and preview acceptance checks below pass.
+Status: Cloudflare resources and encrypted secrets configured on 2026-11-19.
+The Git-connected preview passed all 17 live authentication/download checks before
+production rollout. Production follows the existing push-to-main deployment.
+
+Resources in the existing account:
+- R2 Standard: `labagentworks-private-downloads`; public access disabled, no custom domains.
+- D1: `labagentworks-nih-auth` (`56777f0b-7e7d-44d2-89d1-5775ab1c7955`).
+- Pages: `labagentworks-web`; preview and production use the same dedicated resources
+  with independently generated signing keys. Attempt identifiers are therefore separate.
+- Secrets: `NIH_PASSWORD_SALT`, `NIH_PASSWORD_VERIFIER`, `NIH_TOKEN_SECRET`, all encrypted.
+- Both deployment environments fail closed. Only `/api/nih/*` invokes Functions.
+- No subscriptions were created by this deployment. The owner enabled R2 beforehand;
+  the existing Workers Paid subscription is retained. Normal beta traffic should fit
+  included R2/D1 allowances, but usage beyond allowances is billable.
 
 ## Existing infrastructure and minimal addition
 
 Repository: https://github.com/GaoLab999/labagentworks-web
 Production: https://labagentworks.com
 Cloudflare Pages project: `labagentworks-web`, GitHub-connected, production branch
-`main`, build `npm run build`, output `out`. Preserve these settings. Root-level
+`main`, build `npx next build`, output `out`. Preserve these settings. Root-level
 `functions/` adds Pages Functions automatically; `public/_routes.json` restricts
 function invocation to `/api/nih/*`. All existing pages remain static. scRNA-agent
 release assets, URLs, licensing and download behavior are unchanged.
@@ -17,7 +28,7 @@ release assets, URLs, licensing and download behavior are unchanged.
 Add one private R2 bucket and one D1 database to the existing account. No new
 website, standalone Worker service, account system or public installer copy is
 needed. Pages Functions, D1 and R2 have usage quotas/billing; inspect the account's
-plan and limits before enabling them. No resources were provisioned in this task.
+plan and limits before enabling them. One bucket and one database were provisioned after owner authorization; there were no existing resources to reuse.
 See [Pages bindings](https://developers.cloudflare.com/pages/functions/bindings/)
 and [Functions pricing](https://developers.cloudflare.com/pages/functions/pricing/).
 
@@ -50,7 +61,7 @@ Source release: https://github.com/GaoLab999/nih-download-agent/releases/tag/v0.
    (not shell history, committed files, or frontend variables). Scope the API token
    to the required account/bucket operations. The script verifies the input hash,
    uploads it, reads it back through authenticated access and verifies it again.
-   This helper has not been exercised against live R2 in this task.
+   The equivalent authenticated REST upload and read-back were verified against live R2.
 
 ```sh
 python3 scripts/upload-nih-installer.py review/nih-release/NIH-Download-Agent-Setup.exe
@@ -140,7 +151,7 @@ configured resources to check:
 
 After these checks, merge through the existing main-branch Git workflow and monitor
 its Cloudflare Pages check. Repeat the download/hash checks at labagentworks.com.
-No production merge/deployment was performed: owner configuration is still needed.
+Preview acceptance is complete. See the main-branch Cloudflare Pages check for the production deployment status.
 
 ## Results from this implementation session
 
@@ -159,5 +170,10 @@ No production merge/deployment was performed: owner configuration is still neede
   reviewed. Normal browser navigation stalled; these checks used exported HTML
   with inline CSS and scripts removed. Hydration, mobile-menu behavior and actual
   frontend submission remain unverified. Screenshots/reports are ignored in review/.
-- Live R2, Cloudflare Functions, deployed installer download, and production
-  SHA256 checks: NOT RUN; resources and secrets await owner configuration.
+- Live R2 and Cloudflare preview: PASS. All 17 checks passed: product route, direct
+  access denial, cross-origin denial, wrong/correct passwords, cookie flags,
+  authorized file/size/SHA256, no-store, filename, tampered cookie, and 429 after
+  five attempts. Actual R2 read-back and delivered EXE both matched the expected hash.
+- Production checks are repeated after the main-branch deployment; consult the
+  deployment closeout report. Browser navigation still stalls in this environment;
+  layout evidence above remains static, not a full browser interaction test.

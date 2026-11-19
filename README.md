@@ -222,11 +222,10 @@ Recommended authorized commit:
 git commit -m "Publish verified Apple Silicon Mac research beta download"
 ```
 
-## NIH Download Agent private beta (prepared, not deployed)
+## NIH Download Agent private beta
 
 The NIH product page is `/products/nih-download-agent/`. Its separate password gate
 uses Cloudflare Pages Functions, private R2 delivery and a D1 attempt counter.
-Existing scRNA-agent downloads are unchanged. This addition requires runtime
-bindings and deployment secrets; the earlier static-only setup applies to the
-existing pages. Follow [NIH deployment instructions](NIH_DOWNLOAD_DEPLOYMENT.md)
+Existing scRNA-agent downloads are unchanged. Its runtime bindings and encrypted secrets are configured in the existing Pages
+project; the earlier static-only setup applies to the existing pages. Follow [NIH deployment instructions](NIH_DOWNLOAD_DEPLOYMENT.md)
 before merging or deploying. Missing configuration blocks NIH downloads.
