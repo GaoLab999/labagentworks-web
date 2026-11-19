@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/products",
     "/products/scrna-agent",
+    "/products/nih-download-agent",
     "/how-it-works",
     "/privacy",
     "/pricing",
