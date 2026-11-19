@@ -54,6 +54,11 @@ export default function Products() {
           </div>
         </div>
       </Section>
+      <Section title="NIH Download Agent" description="Discover, download, verify, and organize public sequencing datasets from NCBI GEO, SRA, and ENA.">
+        <Badge>Private Beta · Windows x64 · v0.2.0-beta.1</Badge>
+        <p>A conversational Workbench with sample selection, resumable downloads, and automated file verification.</p>
+        <div className="button-row"><Button href="/products/nih-download-agent/">Explore NIH Download Agent</Button></div>
+      </Section>
       <Section
         eyebrow="Looking ahead"
         title="Built to grow across scientific disciplines."
